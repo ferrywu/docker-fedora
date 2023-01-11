@@ -1,0 +1,31 @@
+name: Create and publish a Docker image
+
+on: [push, pull_request]
+
+env:
+  REGISTRY: ghcr.io
+  USER_NAME: ${{ github.repository_owner }}
+  IMAGE_NAME: fedora
+  TAG_NAME: ${{ github.ref_name }}
+
+jobs:
+  # Push image to GitHub Packages.
+  # See also https://docs.docker.com/docker-hub/builds/
+  push:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Log in to registry
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login $REGISTRY -u $USER_NAME --password-stdin
+
+      - name: Build image and Push image
+        run: |
+          IMAGE_ID=$REGISTRY/$USER_NAME/$IMAGE_NAME
+          docker build . --file Dockerfile --tag $IMAGE_ID:$TAG_NAME --label "runnumber=${GITHUB_RUN_ID}"
+          docker push $IMAGE_ID:$TAG_NAME
