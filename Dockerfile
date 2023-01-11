@@ -1,4 +1,4 @@
-FROM fedora:latest
+FROM fedora:37
 MAINTAINER ferrywu
 
 RUN yum install -y unrar p7zip p7zip-plugins
