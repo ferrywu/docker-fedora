@@ -4,8 +4,9 @@ RUN \
     #
     # general tools
     #
+    yum install -y vim && \
     yum install -y unrar p7zip p7zip-plugins && \
-    yum install -y samba samba-client samba-common net-tools && \
+    yum install -y samba samba-client samba-common net-tools iputils iproute && \
     yum install -y python2 python3 python-is-python3 && \
     #
     # build linux kernel requirements
