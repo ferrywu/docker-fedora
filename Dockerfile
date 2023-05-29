@@ -25,6 +25,15 @@ RUN \
     # for generate .vdi file
     yum install -y qemu-img && \
     #
+    # build Yocto
+    #
+    yum install -y gawk make wget tar bzip2 gzip python3 unzip perl patch diffutils diffstat \
+                   git cpp gcc gcc-c++ glibc-devel texinfo chrpath ccache perl-Data-Dumper \
+                   perl-Text-ParseWords perl-Thread-Queue perl-bignum socat python3-pexpect \
+                   findutils which file cpio python python3-pip xz python3-GitPython python3-jinja2 \
+                   SDL-devel rpcgen mesa-libGL-devel perl-FindBin perl-File-Compare perl-File-Copy perl-locale \
+                   zstd lz4 hostname glibc-langpack-en && \
+    #
     # clean up the yum/dnf cache
     #
     yum clean all && \
