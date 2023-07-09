@@ -4,7 +4,7 @@ RUN \
     #
     # general tools
     #
-    yum install -y vim tree psmisc && \
+    yum install -y vim tree psmisc sudo tmux && \
     yum install -y unrar p7zip p7zip-plugins && \
     yum install -y samba samba-client samba-common net-tools iputils iproute hostname nfs-utils curl && \
     yum install -y python2 python3 python-is-python3 && \
