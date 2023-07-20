@@ -24,6 +24,8 @@ RUN \
         perl-Thread-Queue && \
     # for generate .vdi file
     yum install -y qemu-img && \
+    # for generate .iso file
+    yum install -y genisoimage && \
     #
     # build Yocto
     #
