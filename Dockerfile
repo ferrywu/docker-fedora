@@ -8,6 +8,7 @@ RUN \
     yum install -y unrar p7zip p7zip-plugins && \
     yum install -y samba samba-client samba-common net-tools iputils iproute hostname nfs-utils curl && \
     yum install -y python2 python3 python-is-python3 && \
+    yum install -y python-isort python-flake8 ShellCheck && \
     #
     # build linux kernel requirements
     #
